@@ -1,0 +1,22 @@
+Well done!
+
+4
+a) -0.25
+The condition for EmailPromotion was not "not EQUAL", it was "not INCLUDING".
+Correct answer: 
+SELECT COUNT(DISTINCT PersonType) AS DistinctCount
+FROM Person.Person
+WHERE LastName LIKE 'M%' 
+		OR NOT EmailPromotion LIKE '%1%'
+
+e) -0.5
+Color is not needed in the SELECT. After adding it to select, you had to add it to GROUP BY and it gave you incorrect result.
+Correct answer:
+SELECT  ProductSubcategoryID,
+		MIN(Weight) AS Min_weight, 
+		MAX(Size) AS Max_size
+FROM Production.Product
+WHERE Color IS NOT NULL
+GROUP BY ProductSubcategoryID
+
+Mark: 9
