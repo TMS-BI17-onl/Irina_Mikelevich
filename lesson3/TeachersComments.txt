@@ -1,0 +1,31 @@
+Well done!
+
+2
+a) -0.25
+NULL can be matched with "="! Only "IS NULL".
+
+b) -0.5
+Conditions for Name should be used with OR between them. And (very important) with parentheses.
+Correct answer:
+...WHERE StandardPrice>10 
+		AND (Name LIKE '%X%'
+			OR 
+			Name LIKE 'N%')
+  
+3
+a) -0.25
+The condition was for name of model, not for product name. 
+Correct answer:
+SELECT a.Name, a.StandardCost 
+FROM Production.Product AS a
+LEFT JOIN Production.ProductModel AS b ON a.ProductModelID= b.ProductModelID
+WHERE b.Name LIKE 'LL%'
+
+c) -1
+Correct answer:
+SELECT p.Name, COUNT(sp.SpecialOfferID) as cnt
+FROM Production.Product p JOIN sales.SpecialOfferProduct sp ON p.ProductID=sp.ProductID
+GROUP BY p.Name
+HAVING COUNT(sp.SpecialOfferID) >1
+
+Mark: 8
